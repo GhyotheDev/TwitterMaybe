@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import TweetBox from './components/TweetBox';
+import './App.css'; // 🟢 NEW LINE
 
 function App() {
   const [tweets, setTweets] = useState([]);
@@ -15,14 +16,16 @@ function App() {
   }, []);
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div>
       <h1>Twitter Clone</h1>
       <TweetBox onNewTweet={fetchTweets} />
-      {tweets.map((tweet) => (
-        <div key={tweet._id} style={{ marginTop: '10px' }}>
-          <strong>{tweet.user}</strong>: {tweet.content}
-        </div>
-      ))}
+      <div className="tweet-feed">
+        {tweets.map((tweet) => (
+          <div key={tweet._id} className="tweet">
+            <strong>{tweet.user}</strong>: {tweet.content}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
