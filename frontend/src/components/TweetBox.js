@@ -16,18 +16,18 @@ function TweetBox({ onNewTweet }) {
   };
 
   return (
-    <div style={{ marginBottom: '20px' }}>
+    <div className="tweet-box">
       <input
-        placeholder="Name"
+        type="text"
+        placeholder="Your name"
         value={user}
         onChange={(e) => setUser(e.target.value)}
-        style={{ marginRight: '10px' }}
       />
       <input
+        type="text"
         placeholder="What's happening?"
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        style={{ marginRight: '10px' }}
       />
       <button onClick={submit}>Tweet</button>
     </div>
